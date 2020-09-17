@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Home = () => {
+    
     const places = fakeData;
     const [showPlace, setShowPlace] = useState(places[0]);
 

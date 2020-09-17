@@ -1,11 +1,16 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import fakeData from '../FakeData/fakeData';
 import NavBar from '../NavBar/NavBar';
 import './Booking.css';
 
 const Booking = () => {
+    const history = useHistory();
+    const handleLoginRoute = () => {
+        history.push("/destination");
+    };
+
     const { placename } = useParams();
     const booking = fakeData.find(place => place.name === placename);
 
@@ -23,7 +28,7 @@ const Booking = () => {
                         <form className="form-area">
                             <div className="form-group">
                                 <label>From</label>
-                                <input type="address" className="form-control" placeholder="Enter Address" />
+                                <input type="address" className="form-control" placeholder="Enter Address"/>
                             </div>
 
                             <div className="form-group">
@@ -41,7 +46,7 @@ const Booking = () => {
                                 </div>
                             </div>
                            
-                            <button type="submit" className="btn btn-warning btn-block">Submit</button>
+                            <button onClick={handleLoginRoute} type="submit" className="btn btn-warning btn-block">Submit</button>
                         </form>
                     </Col>
                 </Row>

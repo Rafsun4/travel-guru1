@@ -2,9 +2,13 @@ import React from 'react';
 import { Button, Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import './NavBar.css';
 import logo from '../../images/Logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const NavBar = () => {
+    const history = useHistory();
+    const handleLoginRoute = () => {
+        history.push("/user");
+    };
     return (
         <Container>
             <Navbar className="pr-5">
@@ -19,7 +23,7 @@ const NavBar = () => {
                     <Link className="mr-5 text-white font-weight-bold" to="/destination">Destination</Link>
                     <Link className="mr-5 text-white font-weight-bold" to="/blog">Blog</Link>
                     <Link className="mr-5 text-white font-weight-bold" to="/Contact">Contact</Link>
-                    <Button className="btn btn-sm btn-warning px-4 py-2 font-weight-bold">Login</Button>
+                    <Button onClick={handleLoginRoute} className="btn btn-sm btn-warning px-4 py-2 font-weight-bold">Login</Button>
                 </Nav>
             </Navbar>
         </Container>
