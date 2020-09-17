@@ -1,0 +1,22 @@
+body {
+    background-image: url('../../images/Image/Background 1.png');
+    height: 100vh;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+.placeName {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.form-area {
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
