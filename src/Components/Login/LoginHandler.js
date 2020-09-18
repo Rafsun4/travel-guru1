@@ -14,7 +14,7 @@ import logo from '../../images/Logo.png';
 const LoginHandler = () => {
     const [newUser, setNewUser] = useState(false);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    // const [signOutUser, setSignOutUser] = useContext(UserContext);
+    
 
     const [currentUser, setCurrentUser] = useState({
         isSignedIn: false,
@@ -32,11 +32,12 @@ const LoginHandler = () => {
         setNewUser(!newUser);
     };
 
-    // Initialize Firebase
+    
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
-    /* GOOGLE Sign in */
+
+
     const handleGoogleSignIn = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         firebase
@@ -62,7 +63,7 @@ const LoginHandler = () => {
             });
     };
 
-    /* FACEBOOK Sign in */
+
     const handleFacebookSignIn = () => {
         const provider = new firebase.auth.FacebookAuthProvider();
         firebase
@@ -88,7 +89,7 @@ const LoginHandler = () => {
             });
     };
 
-    /* Form validation and give error */
+
     const [errors, setErrors] = useState({
         name: "",
         email: "",
@@ -154,11 +155,9 @@ const LoginHandler = () => {
             const newUser = { ...currentUser };
             newUser[e.target.name] = e.target.value;
             setCurrentUser(newUser);
-            // console.log("is valid -> ", isFieldValid, currentUser);
         }
     };
 
-    /* CREATE NEW USER */
     const handleCreateNewUser = (e) => {
         e.preventDefault();
         if (!currentUser.email && !currentUser.password) {
@@ -251,12 +250,14 @@ const LoginHandler = () => {
             </Navbar>
         </Container>
             <div className="container tg-signup-login text-center">
-                {currentUser.success && (
+                {
+                    currentUser.success && (
                     <div className="alert alert-success" role="alert">
                         User {!newUser ? "logged in" : "registered"} successfully
                     </div>
                 )}
-                {loggedInUser.error && (
+                {
+                    loggedInUser.error && (
                     <div className="alert alert-danger" role="alert">
                         {loggedInUser.error}
                     </div>

@@ -17,7 +17,7 @@ const Home = () => {
                         <h1 className="placeName">{showPlace.name}</h1>
                         <p className="text-justify">{showPlace.shortDesc}</p>
                         <Link to={"/booking/" + showPlace.name}>
-                            <Button variant="warning" className="btn-sm font-weight-bold">Start Booking</Button>
+                            <Button variant="warning" className="btn btn-warning px-4 py-2 btn-sm font-weight-bold">Start Booking</Button>
                         </Link>
                     </Col>
                     <Col lg={8} className="pl-5">
@@ -26,7 +26,7 @@ const Home = () => {
                                 places.map(place =>
                                     <Col className="placePhoto" sm={4} key={place.name}>
                                         <div onClick={() => setShowPlace(place)} 
-                                            className="small mt-3 text-white   text-center d-block bg-transparent">
+                                            className="small mt-3 text-white text-center d-block bg-transparent">
                                             <img src={place.photo} alt="" className="photo" />
                                             {place.name}
                                         </div>
